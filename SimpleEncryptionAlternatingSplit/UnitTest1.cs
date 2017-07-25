@@ -22,7 +22,7 @@ namespace SimpleEncryptionAlternatingSplit
     {
         public string Encrypt(string text, int times)
         {
-            throw new NotImplementedException();
+            return string.Empty;
         }
     }
 }
