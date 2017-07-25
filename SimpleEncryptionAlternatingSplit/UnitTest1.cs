@@ -16,6 +16,17 @@ namespace SimpleEncryptionAlternatingSplit
             var expected = string.Empty;
             Assert.AreEqual(expected,actual);
         }
+
+        [TestMethod]
+        public void Input_123And0_Should_Be_123()
+        {
+            var kata = new Kata();
+            var text = "123";
+            int times = 0;
+            var actual = kata.Encrypt(text, times);
+            var expected = "123";
+            Assert.AreEqual(expected, actual);
+        }
     }
 
     public class Kata
