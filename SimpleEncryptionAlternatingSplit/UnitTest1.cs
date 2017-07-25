@@ -24,6 +24,12 @@ namespace SimpleEncryptionAlternatingSplit
             EncryptResult(string.Empty, string.Empty, 1);
         }
 
+        [TestMethod]
+        public void Input_Test_And1_Should_Be_eTst()
+        {
+            EncryptResult("eTst", "Test", 1);
+        }
+
         private static void EncryptResult(string expected, string text, int times)
         {
             var kata = new Kata();
@@ -37,6 +43,12 @@ namespace SimpleEncryptionAlternatingSplit
         public string Encrypt(string text, int times)
         {
             return text;
+        }
+
+        public string Decrypt(string encryptedText, int n)
+        {
+            var result = string.Empty;
+            return result;
         }
     }
 }
