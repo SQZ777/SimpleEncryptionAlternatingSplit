@@ -9,22 +9,20 @@ namespace SimpleEncryptionAlternatingSplit
         [TestMethod]
         public void Input_NullAnd0_Should_Be_Null()
         {
-            var kata = new Kata();
-            var text = string.Empty;
-            int times = 0;
-            var actual =  kata.Encrypt(text, times);
-            var expected = string.Empty;
-            Assert.AreEqual(expected,actual);
+            EncryptResult(string.Empty,string.Empty,0);
         }
 
         [TestMethod]
         public void Input_123And0_Should_Be_123()
         {
+            EncryptResult("123", "123", 0);
+        }
+        
+
+        private static void EncryptResult(string expected, string text, int times)
+        {
             var kata = new Kata();
-            var text = "123";
-            int times = 0;
             var actual = kata.Encrypt(text, times);
-            var expected = "123";
             Assert.AreEqual(expected, actual);
         }
     }
