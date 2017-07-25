@@ -47,39 +47,30 @@ namespace SimpleEncryptionAlternatingSplit
                 return text;
 
             var textChar = text.ToArray();
-            var secondChars = getSecondChars(textChar);
-            var cuttedText = getCutText(textChar);
-            return string.Concat(secondChars, cuttedText);
+            var result = getResult(textChar);
+            return result;
         }
-
-        private string getCutText(char[] textChar)
+        private static string getResult(char[] textChar)
         {
-            var index = 0;
-            var result = new char[textChar.Length / 2];
-            for (int i = 0; i < textChar.Length; i++)
-            {
-                if (i % 2 == 0)
-                {
-                    result[index] = textChar[i];
-                    index++;
-                }
-            }
-            return new string(result);
-        }
-
-        private static string getSecondChars(char[] textChar)
-        {
-            var index = 0;
-            var result = new char[textChar.Length / 2];
+            var secondCharsIndex = 0;
+            var cutCharsIndex = 0;
+            var secondCharsResult = new char[textChar.Length / 2];
+            var cutCutResult = new char[textChar.Length / 2];
             for (int i = 0; i < textChar.Length; i++)
             {
                 if (i % 2 == 1)
                 {
-                    result[index] = textChar[i];
-                    index++;
+                    secondCharsResult[secondCharsIndex] = textChar[i];
+                    secondCharsIndex++;
                 }
+                else { 
+                    cutCutResult[cutCharsIndex] = textChar[i];
+                    cutCharsIndex++;
+                }
+
+
             }
-            return new string(result);
+            return string.Concat(new string(secondCharsResult), new string(cutCutResult));
         }
 
         public string Decrypt(string encryptedText, int n)
