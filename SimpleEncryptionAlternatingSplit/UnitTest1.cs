@@ -51,8 +51,7 @@ namespace SimpleEncryptionAlternatingSplit
         {
             if (text.Equals(string.Empty) || times <= 0)
                 return text;
-            var textChar = text.ToArray();
-            return getResult(textChar).Replace("\0", string.Empty);
+            return getResult(text.ToArray()).Replace("\0", string.Empty);
         }
         private static string getResult(char[] textChar)
         {
