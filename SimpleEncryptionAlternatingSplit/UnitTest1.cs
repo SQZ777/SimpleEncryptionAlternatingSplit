@@ -7,8 +7,22 @@ namespace SimpleEncryptionAlternatingSplit
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Input_NullAnd0_Should_Be_Null()
         {
+            var kata = new Kata();
+            var text = string.Empty;
+            int times = 0;
+            var actual =  kata.Encrypt(text, times);
+            var expected = string.Empty;
+            Assert.AreEqual(expected,actual);
+        }
+    }
+
+    public class Kata
+    {
+        public string Encrypt(string text, int times)
+        {
+            throw new NotImplementedException();
         }
     }
 }
