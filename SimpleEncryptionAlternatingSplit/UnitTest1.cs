@@ -33,7 +33,7 @@ namespace SimpleEncryptionAlternatingSplit
     {
         public string Encrypt(string text, int times)
         {
-            return string.Empty;
+            return text;
         }
     }
 }
