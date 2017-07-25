@@ -31,6 +31,12 @@ namespace SimpleEncryptionAlternatingSplit
             EncryptResult("etTs", "Test", 1);
         }
 
+        [TestMethod]
+        public void Input_This_is_a_test驚嘆號And1_Should_Be_hsi_etTi_sats驚嘆號()
+        {
+            EncryptResult("hsi  etTi sats!", "This is a test!", 1);
+        }
+
         private static void EncryptResult(string expected, string text, int times)
         {
             var kata = new Kata();
@@ -48,14 +54,15 @@ namespace SimpleEncryptionAlternatingSplit
 
             var textChar = text.ToArray();
             var result = getResult(textChar);
+            result = result.Replace("\0", string.Empty);
             return result;
         }
         private static string getResult(char[] textChar)
         {
             var secondCharsIndex = 0;
             var cutCharsIndex = 0;
-            var secondCharsResult = new char[textChar.Length / 2];
-            var cutCutResult = new char[textChar.Length / 2];
+            var secondCharsResult = new char[textChar.Length];
+            var cutCutResult = new char[textChar.Length];
             for (int i = 0; i < textChar.Length; i++)
             {
                 if (i % 2 == 1)
@@ -63,16 +70,15 @@ namespace SimpleEncryptionAlternatingSplit
                     secondCharsResult[secondCharsIndex] = textChar[i];
                     secondCharsIndex++;
                 }
-                else { 
+                else
+                {
                     cutCutResult[cutCharsIndex] = textChar[i];
                     cutCharsIndex++;
                 }
-
-
             }
+
             return string.Concat(new string(secondCharsResult), new string(cutCutResult));
         }
-
         public string Decrypt(string encryptedText, int n)
         {
             var result = string.Empty;
