@@ -38,9 +38,21 @@ namespace SimpleEncryptionAlternatingSplit
         }
 
         [TestMethod]
-        public void Input_s_eT_ashi_tist驚嘆號And1_Should_Be_hsi_etTi_sats驚嘆號()
+        public void Input_This_is_a_test驚嘆號And2_Should_Be_hsi_etTi_sats驚嘆號()
         {
             EncryptResult("s eT ashi tist!", "This is a test!", 2);
+        }
+
+        [TestMethod]
+        public void Input_This_is_a_test驚嘆號And3_Should_Be__Tah_itse_sits()
+        {
+            EncryptResult(" Tah itse sits!", "This is a test!", 3);
+        }
+
+        [TestMethod]
+        public void Input_This_is_a_test驚嘆號And4_Should_Be_This_is_a_test驚嘆號()
+        {
+            EncryptResult("This is a test!", "This is a test!", 4);
         }
 
         private static void EncryptResult(string expected, string text, int times)
