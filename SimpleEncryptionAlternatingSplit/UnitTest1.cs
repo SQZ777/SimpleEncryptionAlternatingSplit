@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SimpleEncryptionAlternatingSplit
@@ -27,7 +28,7 @@ namespace SimpleEncryptionAlternatingSplit
         [TestMethod]
         public void Input_Test_And1_Should_Be_eTst()
         {
-            EncryptResult("eTst", "Test", 1);
+            EncryptResult("etTs", "Test", 1);
         }
 
         private static void EncryptResult(string expected, string text, int times)
@@ -42,7 +43,43 @@ namespace SimpleEncryptionAlternatingSplit
     {
         public string Encrypt(string text, int times)
         {
-            return text;
+            if (text.Equals(string.Empty) || times <= 0)
+                return text;
+
+            var textChar = text.ToArray();
+            var secondChars = getSecondChars(textChar);
+            var cuttedText = getCutText(textChar);
+            return string.Concat(secondChars, cuttedText);
+        }
+
+        private string getCutText(char[] textChar)
+        {
+            var index = 0;
+            var result = new char[textChar.Length / 2];
+            for (int i = 0; i < textChar.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    result[index] = textChar[i];
+                    index++;
+                }
+            }
+            return new string(result);
+        }
+
+        private static string getSecondChars(char[] textChar)
+        {
+            var index = 0;
+            var result = new char[textChar.Length / 2];
+            for (int i = 0; i < textChar.Length; i++)
+            {
+                if (i % 2 == 1)
+                {
+                    result[index] = textChar[i];
+                    index++;
+                }
+            }
+            return new string(result);
         }
 
         public string Decrypt(string encryptedText, int n)
