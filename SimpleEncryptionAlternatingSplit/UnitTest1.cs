@@ -9,7 +9,7 @@ namespace SimpleEncryptionAlternatingSplit
         [TestMethod]
         public void Input_NullAnd0_Should_Be_Null()
         {
-            EncryptResult(string.Empty,string.Empty,0);
+            EncryptResult(string.Empty, string.Empty, 0);
         }
 
         [TestMethod]
@@ -17,7 +17,12 @@ namespace SimpleEncryptionAlternatingSplit
         {
             EncryptResult("123", "123", 0);
         }
-        
+
+        [TestMethod]
+        public void Input_NullAnd1_Should_Be_Null()
+        {
+            EncryptResult(string.Empty, string.Empty, 1);
+        }
 
         private static void EncryptResult(string expected, string text, int times)
         {
