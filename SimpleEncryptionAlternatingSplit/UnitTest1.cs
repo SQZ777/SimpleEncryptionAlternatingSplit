@@ -51,11 +51,8 @@ namespace SimpleEncryptionAlternatingSplit
         {
             if (text.Equals(string.Empty) || times <= 0)
                 return text;
-
             var textChar = text.ToArray();
-            var result = getResult(textChar);
-            result = result.Replace("\0", string.Empty);
-            return result;
+            return getResult(textChar).Replace("\0", string.Empty);
         }
         private static string getResult(char[] textChar)
         {
@@ -76,7 +73,6 @@ namespace SimpleEncryptionAlternatingSplit
                     cutCharsIndex++;
                 }
             }
-
             return string.Concat(new string(secondCharsResult), new string(cutCutResult));
         }
         public string Decrypt(string encryptedText, int n)
